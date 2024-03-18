@@ -1,0 +1,63 @@
+@import "constants.scss";
+@import "mixinsAndTemplates";
+
+.features {
+  @include displayFlexProps(row, center, space-between);
+  padding: 96px 0 132px 0;
+}
+
+.features__textContent {
+  max-width: 500px;
+  @include displayFlexProps(column, flex-start, unset);
+  row-gap: 20px;
+  h3 {
+    font-size: $headlineTextFntSz;
+    font-weight: 500;
+  }
+  p {
+    font-size: 16px;
+    font-weight: 400;
+  }
+  ul {
+    @include displayFlexProps(column, flex-start, unset);
+    row-gap: 20px;
+    li {
+      @include displayFlexProps(row, center, unset);
+      font-weight: 400;
+      font-size: 14px;
+      color: $regularTextColor;
+      column-gap: 10px;
+    }
+  }
+}
+
+@include mediaMaxWidth(1024px) {
+  .features__textContent {
+    max-width: 400px;
+  }
+}
+
+@include mediaMaxWidth(900px) {
+  .features {
+    flex-direction: column;
+    row-gap: 40px;
+  }
+  .features__textContent {
+    text-align: center;
+    max-width: 100%;
+    align-items: center;
+    row-gap: 40px;
+
+    p {
+      font-size: 18px;
+    }
+  }
+}
+
+@include mediaMaxWidth(768px) {
+  .features__textContent {
+    p {
+      margin-bottom: 0;
+    }
+  }
+}

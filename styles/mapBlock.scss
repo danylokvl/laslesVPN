@@ -1,0 +1,70 @@
+@import "mixinsAndTemplates.scss";
+@import "constants.scss";
+
+.mapBlock {
+  @include displayFlexProps(column, center, space-between);
+  padding: 150px 0 0 0;
+  background-color: #fbfbfb;
+  position: relative;
+}
+
+.mapBlock__text {
+  text-align: center;
+  p {
+    margin-bottom: 155px;
+    span {
+      font-weight: bold;
+    }
+  }
+}
+
+.mapBlock::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #fbfbfb;
+  width: 100vw;
+  height: 100%;
+  z-index: -10;
+}
+
+.mapBlock__sponsors {
+  margin-top: 35px;
+  @include displayFlexProps(row, center, unset);
+}
+
+.mapBlock__sponsorImage:first-child {
+  margin-right: 60px;
+}
+
+.mapBlock__sponsorImage:nth-child(2) {
+  margin-right: 20px;
+}
+
+.mapBlock__sponsorImage:nth-child(3) {
+  margin-right: 4px;
+}
+
+.mapBlock__sponsorImage:nth-child(4) {
+  margin-right: 60px;
+}
+
+@include mediaMaxWidth(1140px) {
+  .mapBlock__sponsors {
+    padding: 0 24px;
+    overflow-x: scroll;
+  }
+}
+
+@include mediaMaxWidth(1024px) {
+  .mapBlock {
+    p {
+      margin-bottom: 64px;
+    }
+  }
+}
+
+@include mediaMaxWidth(426px) {
+}

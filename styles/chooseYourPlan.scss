@@ -1,0 +1,159 @@
+@use "constants.scss";
+@use "mixinsAndTemplates";
+
+.chooseYourPlan {
+  padding: 80px 0 100px 0;
+  background-color: #fbfbfb;
+
+  position: relative;
+
+  h2,
+  p {
+    text-align: center;
+  }
+}
+
+.chooseYourPlan ::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #fbfbfb;
+  width: 100vw;
+  height: 100%;
+  z-index: -10;
+}
+
+.chooseYourPlan__text {
+  @include displayFlexProps(column, center, unset);
+}
+
+.chooseYourPlan__cardsBlock {
+  @include displayFlexProps(row, center, space-around);
+  overflow: hidden;
+  .arrowButton {
+    display: none;
+  }
+}
+
+.chooseYourPlan__variants {
+  @include displayFlexProps(row, center, space-between);
+  width: 100%;
+  height: 760px;
+}
+
+.chooseYourPlan__variant {
+  @include displayFlexProps(column, center, unset);
+  padding: 80px 68px 52px 68px;
+  background-color: #fff;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  width: 330px;
+  height: 760px;
+  transition: all 0s ease, transform 0.5s ease;
+
+  .chooseYourPlan__boxImage {
+    margin-bottom: 32px;
+  }
+
+  h4 {
+    margin-bottom: 32px;
+    font-size: $titleTextFntSz;
+  }
+
+  ul {
+    @include displayFlexProps(column, flex-start, unset);
+    flex: 0 0 250px;
+    row-gap: 12px;
+    font-size: $bodySmallTextFntSz;
+    color: $regularTextColor;
+  }
+
+  li {
+    @include displayFlexProps(row, center, flex-start);
+    column-gap: 20px;
+    width: 100%;
+  }
+
+  h3 {
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 120%;
+    text-align: center;
+    color: $boldTextColor;
+    margin-bottom: 20px;
+  }
+
+  span {
+    font-weight: 400;
+    color: $regularTextColor;
+  }
+}
+
+.chooseYourPlan__variant:last-child {
+  border: 3px solid $primaryColor;
+  h4 {
+    color: $primaryColor;
+  }
+}
+
+.chooseYourPlan__priceAndButton {
+  margin-top: auto;
+}
+
+@include mediaMaxWidth(1024px) {
+  .chooseYourPlan ::before {
+    display: none;
+  }
+
+  .chooseYourPlan__cardsBlock {
+    @include displayFlexProps(row, center, space-around);
+    padding: 0 40px;
+    .arrowButton {
+      display: block;
+    }
+  }
+
+  .chooseYourPlan__variants {
+    flex-direction: row-reverse;
+    justify-content: center;
+  }
+
+  .chooseYourPlan__variant {
+    width: 0;
+    height: 0;
+    padding: 0;
+    border: 0;
+    transform: translateX(200vw);
+  }
+
+  .chooseYourPlan__variant.active {
+    padding: 24px;
+    border: 2px solid #ddd;
+    width: 330px;
+    height: 760px;
+    transform: translateX(0);
+  }
+
+  .chooseYourPlan__variant:last-child.active {
+    border: 2px solid $primaryColor;
+  }
+}
+
+@include mediaMaxWidth(550px) {
+  h2,
+  p {
+    display: inline-block;
+    max-width: 300px;
+  }
+  .chooseYourPlan__cardsBlock {
+    @include displayFlexProps(column, center, unset);
+    row-gap: 24px;
+  }
+
+  .chooseYourPlan__mobileArrowsBlock {
+    @include displayFlexProps(row, unset, center);
+    column-gap: 40px;
+  }
+}

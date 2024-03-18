@@ -1,0 +1,140 @@
+@import "constants.scss";
+@import "mixinsAndTemplates";
+
+.getStarted__topBlock {
+  @include displayFlexProps(row, center, space-between);
+  padding-bottom: 104px;
+  img {
+    max-width: 550px;
+  }
+}
+
+.getStarted__textAndButton {
+  @include displayFlexProps(column, flex-start, unset);
+  max-width: 45%;
+  h1 {
+    margin-bottom: 20px;
+    font-size: 50px;
+    font-weight: 500;
+    line-height: 140%;
+    color: $boldTextColor;
+    span {
+      font-weight: 700;
+    }
+  }
+  p {
+    margin-bottom: 52px;
+    font-size: $bodyTextFntSz;
+    line-height: 187%;
+    font-weight: 400;
+    color: $regularTextColor;
+    span {
+      font-weight: 700;
+    }
+  }
+}
+
+.getStarted__bottomBlock {
+  @include displayFlexProps(row, center, space-between);
+  padding: 68px 92px;
+  box-shadow: 0px 30px 30px -10px #c4c4c4;
+  border-radius: 20px;
+}
+
+.getStarted__statisticsContainer {
+  @include displayFlexProps(row, center, unset);
+  column-gap: 36px;
+}
+
+.getStarted__statisticsText {
+  h4 {
+    font-size: 24px;
+  }
+  span {
+    font-size: 20px;
+    color: $regularTextColor;
+  }
+}
+
+.getStarted__divider {
+  width: 2px;
+  height: 125px;
+  background-color: #eeeff2;
+  border-radius: 10px;
+}
+
+@include mediaMaxWidth(1024px) {
+  .getStarted {
+    padding: 32px 24px 0 24px;
+  }
+  .getStarted__topBlock {
+    img {
+      max-width: 500px;
+    }
+  }
+  .getStarted__textAndButton {
+    h1 {
+      font-size: 40px;
+    }
+  }
+}
+
+@include mediaMaxWidth(900px) {
+  .getStarted__topBlock {
+    @include displayFlexProps(column-reverse, center, space-between);
+    img {
+      max-width: 611px;
+    }
+  }
+  .getStarted__textAndButton {
+    max-width: 100%;
+    margin: 52px 0 0 0;
+    align-items: center;
+    text-align: center;
+  }
+
+  .getStarted__bottomBlock {
+    padding: 68px 24px;
+  }
+}
+
+@include mediaMaxWidth(767px) {
+  .getStarted__bottomBlock {
+    flex-direction: column;
+    row-gap: 64px;
+  }
+  .getStarted__divider {
+    height: 2px;
+    width: 100%;
+    max-width: 600px;
+  }
+}
+
+@include mediaMaxWidth($mobileMaxWidth) {
+  .getStarted__topBlock {
+    img {
+      max-width: 400px;
+    }
+  }
+  .getStarted__textAndButton {
+    h1 {
+      font-size: 32px;
+    }
+  }
+}
+
+@include mediaMinWidth(320px) {
+  .getStarted__topBlock {
+    img {
+      max-width: 100%;
+    }
+  }
+  .getStarted__textAndButton {
+    h1 {
+      font-size: 24px;
+    }
+    p {
+      font-size: 14px;
+    }
+  }
+}

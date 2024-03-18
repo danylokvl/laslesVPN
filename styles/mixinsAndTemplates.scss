@@ -1,0 +1,31 @@
+@mixin displayFlexProps($flexDirection, $alignItems, $justifyContent) {
+  display: flex;
+  flex-direction: $flexDirection;
+  align-items: $alignItems;
+  justify-content: $justifyContent;
+}
+
+.moveToRight {
+  transform: translateX(200vw);
+}
+
+.moveToLeft {
+  transform: translateX(-200vw);
+}
+
+/*----------------------------------------------------------------------------------------*/
+//Media mixins
+
+@mixin mediaMaxWidth($maxWidth) {
+  @media (max-width: $maxWidth) {
+    @content;
+  }
+}
+
+@mixin mediaMinWidth($minWidth) {
+  @media (min-width: $minWidth) {
+    @content;
+  }
+}
+
+/*----------------------------------------------------------------------------------------*/

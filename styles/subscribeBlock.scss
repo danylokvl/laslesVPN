@@ -1,0 +1,57 @@
+@use "constants.scss";
+@use "defaultStyles.scss";
+@use "mixinsAndTemplates";
+
+.subscribeBlock {
+  position: absolute;
+  padding: 56px 72px;
+  @include displayFlexProps(row, center, space-between);
+  width: 95%;
+  max-height: 232px;
+  bottom: 446px;
+  left: 2%;
+
+  background-color: white;
+  z-index: 5;
+  border-radius: 12px;
+
+  .primaryButton {
+    padding: 20px 44px;
+  }
+}
+
+.subscribeBlock__textContainer {
+  @include displayFlexProps(column, flex-start, center);
+  row-gap: 20px;
+  max-width: 70%;
+  h2,
+  p {
+    margin: 0;
+  }
+
+  h2 {
+    font-size: 28px;
+  }
+}
+
+@include mediaMaxWidth(768px) {
+  .subscribeBlock {
+    padding: 36px;
+    bottom: 748px;
+    .primaryButton {
+      padding: 20px 40px;
+    }
+  }
+
+  .subscribeBlock__textContainer {
+    h2 {
+      font-size: 28px;
+    }
+  }
+}
+
+@include mediaMaxWidth(425px) {
+  .subscribeBlock {
+    display: none;
+  }
+}
